@@ -303,6 +303,21 @@ const (
 	CodeUnauthorized          = 5 // Packet: ConnAck
 )
 
+func ReasonString(code byte) string {
+	switch code {
+	case CodeUnacceptableVersion:
+		return "unacceptable version"
+	case CodeIdentifierRejected:
+		return "identifier rejected"
+	case CodeServerUnavailable:
+		return "server unavailable"
+	case CodeUnauthorized:
+		return "unauthorized"
+	default:
+		return fmt.Sprintf("unknown code %d")
+	}
+}
+
 const (
 	CodeSuccess                             = 0   // Packet: ConnAck, PubAck, PubRecv, PubRel, PubComp, UnSubAck, Auth
 	CodeNormalDisconn                       = 0   // Packet: DisConn
